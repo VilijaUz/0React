@@ -69,7 +69,7 @@ text-decoration: none;
   }
 `;
 const Header = () => {
-  const { currentUser } = useContext(UsersContext);
+  const { currentUser, setCurrentUser } = useContext(UsersContext);
 
   const handleClick = () => {
     // Čia įvyksta norimos funkcijos veiksmai paspaudus mygtuką
@@ -97,7 +97,7 @@ const Header = () => {
 
               <li><NavLink to='/'>Questions</NavLink></li>
               {/* <li><NavLink to='/NewQuestion'>Add New Question</NavLink></li> */}
-              <li><NavLink to='/Logout'>Logout</NavLink></li>
+              <li><NavLink onClick={() => setCurrentUser(null)} to='/'>Logout</NavLink></li>
               <li><NavLink to='/'>Sign In</NavLink></li>
             </ul>
           </>
