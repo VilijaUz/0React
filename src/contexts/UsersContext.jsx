@@ -10,6 +10,15 @@ const reducer = (state, action) => {
     case UsersActionTypes.get:
       return action.data;
     case UsersActionTypes.add:
+
+      fetch(`http://localhost:8080/users`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(action.data)
+      })
+
       return [...state, action.data];
     default:
       return state;
@@ -27,6 +36,7 @@ const UsersProvider = ({ children }) => {
         data: data
       }));
   }, []);
+  console.log(users);
   return (
     <UsersContext.Provider
       value={{
