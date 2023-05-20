@@ -1,0 +1,80 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "createId": 1,
+      "title": "Meaning of life",
+      "question": "Life is like a coin. You can spend it any way you wish, but you only spend it once.",
+      "likeList": 0,
+      "dislikeList": 0,
+      "ifRedacted": false,
+      "additionalQuestion": "..."
+    },
+    {
+      "id": 2,
+      "createId": 2,
+      "title": "Thoughts over a cup of coffee",
+      "question": "Life is what happens to you while you're busy making other plans",
+      "likeList": 0,
+      "dislikeList": 0,
+      "ifRedacted": false,
+      "additionalQuestion": "..."
+    },
+    {
+      "id": 3,
+      "createId": 3,
+      "title": "Weather",
+      "question": "It's not the date, not the weather, but the people that make a good day.",
+      "likeList": 0,
+      "dislikeList": 0,
+      "ifRedacted": true,
+      "additionalQuestion": "..."
+    },
+    {
+      "id": "6d4eeb5b-aa7e-47de-9637-574026b8ef22",
+      "userId": 1,
+      "title": "kol",
+      "question": "tol"
+    },
+    {
+      "id": "557f16d0-adca-4dba-9f5d-f04c578c2879",
+      "userId": 1,
+      "title": "kodel",
+      "question": "nesigauna"
+    }
+  ],
+  "answers": [
+    {
+      "id": 1,
+      "questionId": 1,
+      "createId": 2,
+      "answer": "Description of answer1",
+      "likeList": 0,
+      "ifRedacted": false
+    },
+    {
+      "id": 2,
+      "questionId": 1,
+      "createId": 1,
+      "answer": "Description of answer2",
+      "likeList": 0,
+      "ifRedacted": false
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Vartotojas1",
+      "email": "vartotojas1@example.com",
+      "password": "000",
+      "avatarURL": "https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
+    },
+    {
+      "id": 2,
+      "name": "Vartotojas2",
+      "email": "vartotojas2@example.com",
+      "password": "111",
+      "avatarURL": "https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
+    }
+  ]
+}
