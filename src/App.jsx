@@ -10,6 +10,8 @@ import NewQuestion from './components/NewQuestion';
 import UsersContext from './contexts/UsersContext';
 import { useContext } from 'react';
 import ManageUsersPage from './components/ManageUsersPage';
+import EditAnswer from './components/EditAnswer';
+import EditQuestion from './components/EditQuestion';
 
 
 const App = () => {
@@ -18,6 +20,16 @@ const App = () => {
       <>
          <Header />
          <Routes>
+            <Route path='/EditQuestion/:id' element={
+               currentUser?
+               <EditQuestion/>:
+               <Navigate to="/" />
+            }/>
+            <Route path='/EditAnswer/:id' element={
+               currentUser ?
+                  <EditAnswer /> :
+                  <Navigate to="/" />
+            } />
             <Route
                path="/NewQuestion"
                element={

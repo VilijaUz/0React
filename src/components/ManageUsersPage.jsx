@@ -18,11 +18,6 @@ const ManageUsersPage = () => {
               gap: '10px'
             }}
           >
-            <img
-              style={{ width:'30px', height:'30px' }}
-              src={user.avatarURL}
-              alt="user avatar"
-            />
             <p>{user.userName}</p>
             <button
               onClick={() => setUsers({

@@ -30,35 +30,32 @@ const Login = () => {
   const inputHandler = e => {
     setFormInputs({
       ...formInputs,
-      [e.target.name]:e.target.value
+      [e.target.name]: e.target.value
     });
     setFailedLogIn(false);//pradingsta neteisingi duomenys
   }
-
   const formSubmit = e => {
     e.preventDefault();
-    const loggedInUser = users.find(user => user.email === formInputs.email && user.password===formInputs.password);
-  //pasikuriame kintamaji ,tikriname ar vartotojas 
-
-    if(loggedInUser){
-   setCurrentUser(loggedInUser)
-   navigate("/")
+    const loggedInUser = users.find(user => user.email === formInputs.email && user.password === formInputs.password);
+    //pasikuriame kintamaji ,tikriname ar vartotojas 
+    if (loggedInUser) {
+      setCurrentUser(loggedInUser)
+      navigate("/")
     } else {
-    setFailedLogIn(true)
+      setFailedLogIn(true)
     }
   }
 
-  
-    return ( 
-      <StyledMain>
-      <form onSubmit={(e) => {formSubmit(e)}}>
-      <div>
+  return (
+    <StyledMain>
+      <form onSubmit={(e) => { formSubmit(e) }}>
+        <div>
           <label htmlFor="email">Email:</label>
           <input
             type="email"
             name="email" id="email"
             value={formInputs.email}
-            onChange={(e)=>{inputHandler(e)}}
+            onChange={(e) => { inputHandler(e) }}
           />
         </div>
         <div>
@@ -67,7 +64,7 @@ const Login = () => {
             type="password"
             name="password" id="password"
             value={formInputs.password}
-            onChange={(e)=>{inputHandler(e)}}
+            onChange={(e) => { inputHandler(e) }}
           />
         </div>
         <input type="submit" value="Log In" />
@@ -75,13 +72,13 @@ const Login = () => {
       {
         failedLogIn &&
         <h1
-          style={{ color:'red', padding:'200px',alignItems:'center' }}
+          style={{ color: 'red', padding: '200px', alignItems: 'center' }}
         >
-                Incorrect login details
+          Incorrect login details
         </h1>
       }
     </StyledMain>
-   );
+  );
 }
- 
+
 export default Login;

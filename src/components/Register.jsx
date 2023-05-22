@@ -3,12 +3,9 @@ import * as Yup from 'yup';
 import { useFormik } from "formik";
 import { useContext } from "react";
 import UsersContext from "../contexts/UsersContext";
-import { Login } from "@mui/icons-material";
 import { useState } from "react";
 import { v4 as uuid } from "uuid";
 import { useNavigate } from "react-router-dom";
-
-
 
 const StyledMain = styled.main`
   height: 700px;
@@ -68,9 +65,7 @@ const Register = () => {
         setUsers({ type: UsersActionTypes.add, data: newUser })
         navigate('/');
       }
-
     }
-
   });
 
   return (

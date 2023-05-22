@@ -5,7 +5,6 @@ import UsersContext from '../contexts/UsersContext';
 import QuestionsContext from '../contexts/QuestionsContext';
 import { v4 as generateId } from 'uuid';
 
-
 const StyledQuestionList = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -31,7 +30,6 @@ const StyledQuestionCard = styled.div`
   p {
     padding-right:10px;
   }
-  /* Šaliname flex-wrap ir height savybes */
   .frame {
     position: relative;
     background-color: #333;
@@ -54,7 +52,6 @@ const StyledQuestionCard = styled.div`
     margin-left: 50px;
   }
   @media (min-width: 768px) {
-    /* Iškeliame flex-basis į viršų, kad apimtų visą kortelės dydį */
     flex-basis: 20%;
     flex-grow: 1;
   }
@@ -75,7 +72,7 @@ const NewQuestion = () => {
       ...formInputs,
       [e.target.name]: e.target.value
     });
-    // console.log(e);
+
   }
   const formHandler = e => {
     e.preventDefault();
@@ -84,7 +81,7 @@ const NewQuestion = () => {
       userId: currentUser.id,
       title: formInputs.title,
       question: formInputs.question,
-      likeList:formInputs.likeList
+      likeList: formInputs.likeList
     }
     setQuestion({
       type: QuestionsAcionTypes.add,
@@ -110,7 +107,7 @@ const NewQuestion = () => {
                 value={formInputs.title}
                 onChange={(e) => {
                   inputHandler(e);
-                }}/>
+                }} />
               <label htmlFor="question">Question:</label>
               <input type="text"
                 required
@@ -119,7 +116,7 @@ const NewQuestion = () => {
                 value={formInputs.question}
                 onChange={(e) => {
                   inputHandler(e);
-                }}/>
+                }} />
             </div>
             <input type="submit" value="Create Question" />
           </form>
@@ -131,82 +128,3 @@ const NewQuestion = () => {
 };
 
 export default NewQuestion;
-
-{/* <>
-<h1>Add new question</h1>
-<form onSubmit={(e) => { formHandler(e) }}>
-  <div>
-    <label htmlFor="question">Title :</label>
-    <input type="text"
-      required
-      name='question'
-      id='question'
-      value={formInputs.question}
-      onChange={(e) => { inputHandler(e) }}
-    />
-  </div>
-  <input type="submit" value="Create Question" />
-</form>
-</> */}
-
-
-
-// const [questions, setQuestions] = useState('');
-// const { addQuestion } = useContext(QuestionsContext);
-
-// const handleChange = (e) => {
-//   setQuestions(e.target.value);
-// };
-
-// const handleSubmit = (e) => {
-//   e.preventDefault();
-//   const newQuestion = {
-//     id: generateId(), // Sugeneruojate unikalų ID
-//     question: questions,
-//     likeCount: 0,
-//     dislikeCount: 0
-//   };
-//   addQuestion(newQuestion); // Pridedate naują klausimą į duomenų kontekstą
-//   setQuestions(''); // Išvalote klausimo įvesties lauką
-// };
-
-
-
-
-
-// const [questions, setQuestions] = useState('');
-// const [pdated, setPdated] = useState(questions);
-// const handleChange = (event) => {
-//   const newQuestion = ' ';
-//   setQuestions(event.target.value);
-// };
-
-// const handleClick=()=>{setPdated(questions)
-//   // setAnswers(message);
-//   // answers.push(message);
-//   console.log(pdated);
-//   // setQuestions('')
-
-// };
-
-
-
-
-
-{/* <form onSubmit={handleSubmit}>
-          <textarea type="text" value={question} onChange={handleChange} />
-          <button type="submit">Add Question</button>
-        </form> */}
-
-
-
-
-
-{/* <form onSubmit={formHandler}> */ }
-{/* <div>
-            <span htmlFor="question">Question:</span>
-           <span>{pdated}</span>
-          </div>
-          <textarea  value={questions} onChange={handleChange} htmlFor="textarea"/>
-          <button onClick={handleClick}>Create</button> */}
-{/* </form> */ }

@@ -72,10 +72,7 @@ const Header = () => {
   const { currentUser, setCurrentUser } = useContext(UsersContext);
 
   const handleClick = () => {
-    // Čia įvyksta norimos funkcijos veiksmai paspaudus mygtuką
     alert("Don't be quiet as a mouse");
-    console.log('Paspaudėte mygtuką!');
-
   };
 
   return (
@@ -96,7 +93,6 @@ const Header = () => {
               </form>
 
               <li><NavLink to='/'>Questions</NavLink></li>
-              {/* <li><NavLink to='/NewQuestion'>Add New Question</NavLink></li> */}
               <li><NavLink onClick={() => setCurrentUser(null)} to='/'>Logout</NavLink></li>
               <li><NavLink to='/'>Sign In</NavLink></li>
             </ul>

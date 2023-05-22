@@ -1,14 +1,20 @@
 import styled from 'styled-components';
-import { useState } from 'react';
+import { useState, useContext} from 'react';
+import AnswersContext from '../contexts/AnswersContext';
+import { v4 as generateId } from 'uuid';
+import UsersContext from '../contexts/UsersContext';
+import { useNavigate } from 'react-router-dom';
+import QuestionsContext from '../contexts/QuestionsContext';
+
 
 const StyledQuestionList = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   height: auto;
-  width: 100%; /* Pakeista į 100% plotį */
-  max-width: 1200px; /* Pridėtas maksimalus plotis */
-  margin: 0 auto; /* Centrinis lygiavimas */
+  width: 100%;
+  max-width: 1200px; 
+  margin: 0 auto; 
 `;
 
 const StyledQuestionCard = styled.div`
@@ -28,7 +34,6 @@ const StyledQuestionCard = styled.div`
   h4{
     padding-bottom: 5px;
   }
-  /* Šaliname flex-wrap ir height savybes */
   .frame {
     position: relative;
     background-color: #333;
@@ -51,22 +56,22 @@ const StyledQuestionCard = styled.div`
     margin: 10px;
   }
   @media (min-width: 768px) {
-    /* Iškeliame flex-basis į viršų, kad apimtų visą kortelės dydį */
     flex-basis: 20%;
     flex-grow: 1;
   }
 `;
 
-
-
 const QuestionCard = ({ data }) => {
 
   const [likeCount, setLikeCount] = useState(0);
-  const [unlikeCount, setUnlikeCount] = useState(0);
+  const [unlikeCount, setUnlikeCount] = useState(0)
   const [message, setMessage] = useState('');
-  const [updated, setUpdated] = useState(message);
+  const { answers, AnswersAcionTypes, setAnswer } = useContext(AnswersContext);
+  const { setQuestion, QuestionsAcionTypes } = useContext(QuestionsContext);
+  const { currentUser } = useContext(UsersContext);
+  const navigate = useNavigate();
 
-  const [answers, setAnswers] = useState([]);
+
   const handleLikeClick = () => {
     setLikeCount(likeCount + 1);
   };
@@ -75,67 +80,76 @@ const QuestionCard = ({ data }) => {
     setUnlikeCount(unlikeCount + 1);
   };
   const handleChange = (event) => {
-    const newMessage = ' '; // Nauja žinutė
     setMessage(event.target.value);
-
-
-
-
   };
   const handleClick = () => {
-    setUpdated(message)
-    // setAnswers(message);
-    answers.push(message);
-    setMessage('')
-
+    if (currentUser) {
+      const newAnswer = {
+        id: generateId(),
+        questionId: data.id,
+        userId: currentUser.id,
+        answer: message,
+        likeList: 0,
+        ifRedacted: false
+      }
+      setAnswer({
+        type: AnswersAcionTypes.add,
+        data: newAnswer
+      })
+      setMessage('');
+    } else {
+      setMessage('Please log in');
+    }
   };
-
+  const handleEditClick = (EditActionType, id) => {
+    if (EditActionType === 'EditAnswer') {
+      if(answers.find(answer => answer.id === id).userId === currentUser?.id){
+        navigate(`/EditAnswer/${id}`);
+      }
+    } else if(EditActionType ==='EditQuestion'){
+    navigate(`/EditQuestion/${data.id}`)
+    }
+  };
 
   return (
     <StyledQuestionList>
       <StyledQuestionCard>
         <div>
-          {/* <div>
-      <h3>{questions.questions}</h3>
-      <p>Likes: {questions.likeCount}</p>
-      <p>Dislikes: {questions.unlikeCount}</p>
-    </div> */}
           <div>
             <h3 style={{ display: 'inline' }}>{data.title}</h3>
             <p style={{ display: 'inline' }}>{data.question}</p>
-            <button style={{ display: 'inline' }} >Edit</button>
-            <button style={{ display: 'inline' }} >Delete</button>
+            <button style={{ display: 'inline' }} onClick={() => handleEditClick('EditQuestion')}>Edit</button>
+            <button style={{ display: 'inline' }} onClick={()=>{
+              if(data.userId === currentUser?.id){setQuestion({questionsId:data.id, type:QuestionsAcionTypes.delete})}
+              }}>Delete</button>
           </div>
           <div>
-            <p style={{ display: 'inline', marginBottom: '20px' }}>Like <span role="img" aria-label="Thumbs up" onClick={handleLikeClick} style={{ fontSize: '1.5em' }}>👍</span> {likeCount}</p>
+            <p style={{ display: 'inline', marginBottom: '20px' }} >Like <span role="img" aria-label="Thumbs up" onClick={handleLikeClick} style={{ fontSize: '1.5em' }}>👍</span> {likeCount}</p>
             <p style={{ display: 'inline' }}>Dislike <span role="img" aria-label="Thumbs down" onClick={handleUnlikeClick} style={{ fontSize: '1.5em' }}>👎</span> {unlikeCount}</p>
-
             <p>{data.ifRedacted}</p>
           </div>
         </div>
-
-
         <div>
           {
-            answers.map((answers, index) =>
+            answers.filter(answer => answer.questionId === data.id).map((answer) =>
               <>
-                <li key={index}>   
-                  <h4 style={{ display: 'inline' }}>Answer:{answers}</h4>
+                <li key={answer.id}>
+                  <h4 style={{ display: 'inline' }}>Answer:{answer.answer}</h4>
                   <p style={{ display: 'inline', paddingBottom: '0px' }}>Like <span role="img" aria-label="Thumbs up" onClick={handleLikeClick} style={{ fontSize: '1.5em' }}>👍</span> {likeCount}</p>
                   <p style={{ display: 'inline' }}>Dislike <span role="img" aria-label="Thumbs down" onClick={handleUnlikeClick} style={{ fontSize: '1.5em' }}>👎</span> {unlikeCount}</p>
-                  <button>Edit</button>
-                  <button>Delete</button> </li>
-
+                  <button onClick={() => handleEditClick('EditAnswer', answer.id)}>Edit</button>
+                  <button onClick={() => {if(answer.userId === currentUser?.id){setAnswer({answerId: answer.id, type: AnswersAcionTypes.delete })}}}>Delete</button> </li>
               </>
             )}
         </div>
         <div>
           <span style={{ paddingRight: '20px' }} >  Answers area:  </span>
           <textarea
-            value={message} onChange={handleChange} htmlFor="textarea">{data.answer}</textarea >
+            value={message} onChange={handleChange} htmlFor="textarea">{data.answers}</textarea >
           <button style={{ paddingLeft: '20px', marginLeft: '30px' }} onClick={handleClick}>Create</button>
           <p style={{ display: 'inline', marginBottom: '20px' }}>Like <span role="img" aria-label="Thumbs up" onClick={handleLikeClick} style={{ fontSize: '1.5em' }}>👍</span> {likeCount}</p>
           <p style={{ display: 'inline' }}>Dislike <span role="img" aria-label="Thumbs down" onClick={handleUnlikeClick} style={{ fontSize: '1.5em' }}>👎</span> {unlikeCount}</p>
+
 
         </div>
       </StyledQuestionCard>
