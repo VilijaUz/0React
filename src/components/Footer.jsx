@@ -14,12 +14,12 @@ const Footer = () => {
   return (  
     <StyledFooter>
       <div>
-        <a href="#" style={{ color: '#fff', textDecoration: 'none' }}> CHAT ROOM</a>
+        <a href="https://www.facebook.com" style={{ color: '#fff', textDecoration: 'none' }}> CHAT ROOM</a>
         <span style={{ margin: '0 10px' }}>|</span>
-        <a href="#"> About As </a>
-        <a href="#"> Contact Us </a>
-        <a href="#"> Jobs </a>
-        <a href="#"> Help </a>
+        <a href="https://www.facebook.com"> About As </a>
+        <a href="https://www.facebook.com"> Contact Us </a>
+        <a href="#https://www.facebook.com"> Jobs </a>
+        {/* <a href="#"> Help </a> */}
       </div>
       <div>
   <a href="https://www.facebook.com">

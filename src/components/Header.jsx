@@ -2,7 +2,6 @@ import { NavLink } from "react-router-dom";
 import styled from 'styled-components';
 import { useContext } from "react";
 import UsersContext from "../contexts/UsersContext";
-import NewQuestion from "./NewQuestion";
 
 const StyledHeader = styled.header`
   justify-content: space-between;

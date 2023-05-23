@@ -41,7 +41,6 @@ const EditAnswer = () => {
       ...formInput, [e.target.name]: e.target.value
     })
   }
-
   const formHandler = (e) => {
     e.preventDefault();
     const newAnswer = {
@@ -54,11 +53,10 @@ const EditAnswer = () => {
     });
     navigate(-1);
   }
-
   return (
     <StyledEditAnswer>
       <form onSubmit={e => formHandler(e)}>
-        <input type="text" name="answer" id="answer" value={formInput.answer} onChange={e => inputHandler(e)} />
+        <textarea type="text" name="answer" id="answer" value={formInput.answer} onChange={e => inputHandler(e)} />
         <input type="submit" value="Save" />
       </form>
     </StyledEditAnswer>);

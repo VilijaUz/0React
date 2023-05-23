@@ -1,40 +1,140 @@
 {
   "questions": [
     {
-      "id": 1,
+      "id": "118597e5-7672-4014-9426-6817bee0e972",
       "userId": 1,
-      "title": "Meaning of life",
-      "question": "Life is like a coin. You can spend it any way you wish, but you only spend it once.",
-      "likeList": 0,
-      "dislikeList": 0,
-      "ifRedacted": false,
-      "additionalQuestion": "..."
+      "title": "The eternal weather debate",
+      "question": "Never have bad weather?Realy?"
     },
     {
-      "id": 2,
-      "userId": 2,
+      "id": "1d94e4bd-d118-4cef-87a4-e295feccd808",
+      "userId": 1,
+      "title": "Travel experiences",
+      "question": "Which direction would you recommend for the month of November?"
+    },
+    {
+      "id": "498a2ce4-134e-482b-b780-cf0916118d1e",
+      "userId": 1,
+      "title": "Thoughts over a cup of coffee",
+      "question": "Life is what happens to you while you're busy making other plans"
+    },
+    {
+      "id": 3,
+      "userId": 1,
       "title": "Thoughts over a cup of coffee",
       "question": "Life is what happens to you while you're busy making other plans",
       "likeList": 0,
       "dislikeList": 0,
       "ifRedacted": false,
       "additionalQuestion": "..."
+    },
+    {
+      "id": "58021297-57b4-4f9f-b793-67f8dab3083c",
+      "userId": 1,
+      "title": "test",
+      "question": "like too much"
+    },
+    {
+      "id": "e4b010cc-8cc1-4a58-95ae-757f8b17b721",
+      "userId": 1,
+      "title": "Netflix",
+      "question": "Which films have ratings above 8 ?.."
     }
   ],
   "answers": [
     {
-      "id": 1,
-      "questionId": 1,
-      "createId": 2,
-      "answer": "Description of answer1",
+      "id": "3c539545-dcdd-4c7f-95c4-f3e580ae1b19",
+      "questionId": "118597e5-7672-4014-9426-6817bee0e972",
+      "userId": 1,
+      "answer": "It's not the weather that makes a good day, but the people",
       "likeList": 0,
       "ifRedacted": false
     },
     {
-      "id": 2,
-      "questionId": 1,
-      "createId": 1,
-      "answer": "Description of answer2",
+      "id": "fd2b60f8-c266-4001-9207-7c7e83685d4b",
+      "questionId": "118597e5-7672-4014-9426-6817bee0e972",
+      "userId": 1,
+      "answer": "Do you feel under the weather today ?",
+      "likeList": 0,
+      "ifRedacted": false
+    },
+    {
+      "id": "05861abd-0192-419a-9dae-79d0b40db036",
+      "questionId": "118597e5-7672-4014-9426-6817bee0e972",
+      "userId": 1,
+      "answer": "It's raining on my head.",
+      "likeList": 0,
+      "ifRedacted": false
+    },
+    {
+      "id": "1460a839-3e23-4e61-b735-877eb75ec55e",
+      "questionId": "1d94e4bd-d118-4cef-87a4-e295feccd808",
+      "userId": 1,
+      "answer": "Jobs fill your pockets, adventures fill your soul.",
+      "likeList": 0,
+      "ifRedacted": false
+    },
+    {
+      "id": "108c016d-83bc-4361-a943-6a676017ed3c",
+      "questionId": "1d94e4bd-d118-4cef-87a4-e295feccd808",
+      "userId": 1,
+      "answer": "Remember that happiness is a way of travel, not a destination",
+      "likeList": 0,
+      "ifRedacted": false
+    },
+    {
+      "id": "ec532599-3b48-444a-afb2-a03b7b669686",
+      "questionId": "1d94e4bd-d118-4cef-87a4-e295feccd808",
+      "userId": 1,
+      "answer": "Travel is the only thing you buy that makes you richer.",
+      "likeList": 0,
+      "ifRedacted": false
+    },
+    {
+      "id": "73f990e1-999a-481e-a988-2d12291b2928",
+      "questionId": "1d94e4bd-d118-4cef-87a4-e295feccd808",
+      "userId": 1,
+      "answer": "The world is a book and those who do not travel read only one page",
+      "likeList": 0,
+      "ifRedacted": false
+    },
+    {
+      "id": "76511fed-2af7-4f7e-9885-d22f761a078d",
+      "questionId": "498a2ce4-134e-482b-b780-cf0916118d1e",
+      "userId": 1,
+      "answer": "I can live without money, but I cannot live without love. :)",
+      "likeList": 0,
+      "ifRedacted": false
+    },
+    {
+      "id": "89e82d36-b3ea-4966-82d8-ea8059ea04bf",
+      "questionId": "498a2ce4-134e-482b-b780-cf0916118d1e",
+      "userId": 1,
+      "answer": "The most important thing in life is to learn how to give out love, and to let it come in.",
+      "likeList": 0,
+      "ifRedacted": false
+    },
+    {
+      "id": "562ff006-c6fb-4295-a30d-42399b47bd26",
+      "questionId": "498a2ce4-134e-482b-b780-cf0916118d1e",
+      "userId": 1,
+      "answer": "My name is Microsoft. Can I crash at your place tonight?",
+      "likeList": 0,
+      "ifRedacted": false
+    },
+    {
+      "id": "0e0a3526-e4b2-4589-89e9-5a2d5e7328f7",
+      "questionId": "498a2ce4-134e-482b-b780-cf0916118d1e",
+      "userId": 1,
+      "answer": "What's the difference between love and marriage? Love is blind. Marriage is an eye-opener.",
+      "likeList": 0,
+      "ifRedacted": false
+    },
+    {
+      "id": "7997643e-5af2-48ad-80a9-a13ca9a6efd1",
+      "questionId": "118597e5-7672-4014-9426-6817bee0e972",
+      "userId": 1,
+      "answer": "naujas",
       "likeList": 0,
       "ifRedacted": false
     }

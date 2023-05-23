@@ -58,7 +58,7 @@ const EditQuestion = () => {
 
     <StyledEditQuestion >
       <form onSubmit={e => formHandler(e)}>
-        <input type="text" name="question" id="question" value={formInput.question} onChange={e => inputHandler(e)} />
+        <textarea type="text" name="question" id="question" value={formInput.question} onChange={e => inputHandler(e)} />
         <input type="submit" value="Save" />
       </form>
     </StyledEditQuestion >

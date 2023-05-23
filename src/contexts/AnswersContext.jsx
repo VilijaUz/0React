@@ -20,7 +20,6 @@ const reducer = (state, action) => {
         },
         body: JSON.stringify(action.data)
       });
-      console.log(action.data); 
       return [...state, action.data];
       
     case AnswersAcionTypes.delete:

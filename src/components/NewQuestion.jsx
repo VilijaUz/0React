@@ -10,9 +10,10 @@ const StyledQuestionList = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   height: auto;
-  width: 100%; /* Pakeista į 100% plotį */
-  max-width: 1200px; /* Pridėtas maksimalus plotis */
-  margin: 0 auto; /* Centrinis lygiavimas */
+  width: 100%; 
+  max-width: 1200px; 
+  margin: 0 auto; 
+  font-size:1,5rem;
 `;
 
 const StyledQuestionCard = styled.div`
@@ -62,7 +63,6 @@ const NewQuestion = () => {
   const navigate = useNavigate();
   const { currentUser } = useContext(UsersContext);
   const { setQuestion, QuestionsAcionTypes } = useContext(QuestionsContext);
-  console.log(setQuestion, QuestionsAcionTypes);
   const [formInputs, setFormInputs] = useState({
     title: ''
   });
@@ -98,7 +98,7 @@ const NewQuestion = () => {
           <form onSubmit={formHandler}>
             <div>
               <label htmlFor="title">Title :</label>
-              <input type="text"
+              <textarea type="text"
                 required
                 name='title'
                 id='title'
@@ -109,14 +109,15 @@ const NewQuestion = () => {
                   inputHandler(e);
                 }} />
               <label htmlFor="question">Question:</label>
-              <input type="text"
+              <textarea type="text"
                 required
                 name='question'
                 id='question'
                 value={formInputs.question}
                 onChange={(e) => {
                   inputHandler(e);
-                }} />
+                }} 
+              />
             </div>
             <input type="submit" value="Create Question" />
           </form>

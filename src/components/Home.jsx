@@ -31,7 +31,6 @@ const StyledHome = styled.main`
 `;
 const Home = () => {
   const { question } = useContext(QuestionsContext);
-  console.log(question);
   const { currentUser } = useContext(UsersContext);
   return (
     <StyledHome>
